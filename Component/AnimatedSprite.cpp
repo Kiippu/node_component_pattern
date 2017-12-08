@@ -2,7 +2,7 @@
 #include <iostream>
 
 AnimatedSprite::AnimatedSprite()
-	:Component(LABLE_COMPONENT_TYPE::COMP_ANIMATED_SPRITE)
+	:Component(LABEL_COMPONENT_TYPE::COMP_ANIMATED_SPRITE)
 {
 	std::cout << "AnimatedSprite was created" << std::endl;
 }

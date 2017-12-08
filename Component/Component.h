@@ -15,12 +15,12 @@
 class Component
 {
 protected:
-	explicit Component(LABLE_COMPONENT_TYPE ct);
+	explicit Component(LABEL_COMPONENT_TYPE ct);
 	
 public:
 	virtual ~Component();
 	// gets type name
-	LABLE_COMPONENT_TYPE const GetComponentType() const;
+	LABEL_COMPONENT_TYPE const GetComponentType() const;
 
 	//holds next the incrememnted id tag
 	static ID_COMPONENT_TYPE	nextIdForComponent;
@@ -29,7 +29,7 @@ public:
 
 private:
 	// components name
-	LABLE_COMPONENT_TYPE		comp_type;
+	LABEL_COMPONENT_TYPE		comp_type;
 	ID_COMPONENT_TYPE			comp_ID;
 };
 

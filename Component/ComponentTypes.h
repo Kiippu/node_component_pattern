@@ -25,7 +25,7 @@ typedef enum : unsigned int
 	COMP_READ_WRITE,				//NOT DONE
 	//COMP_
 
-} LABLE_COMPONENT_TYPE;
+} LABEL_COMPONENT_TYPE;
 
 typedef unsigned int ID_COMPONENT_TYPE;
 

@@ -4,6 +4,7 @@
 #include <memory>
 #include "AnimatedSprite.h"
 #include <list>
+#include <algorithm>
 
 /*
 TODO:
@@ -24,45 +25,58 @@ Container::~Container()
 }
 
 // pulls component out of container to use
-// change list to map!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-COMPONENT_PTR const & Container::GetComponent(LABLE_COMPONENT_TYPE ct) const
+COMPONENT_PTR Container::GetComponent(LABEL_COMPONENT_TYPE ct)
 {
-	
-	//No component of that lable in the container
+	for (auto c : ComponentContainer) {
+		if (c->GetComponentType() == ct)
+			return  c;
+	}
 	return nullptr;
 }
 
+// checks to see it the componet already exists in the container
+bool Container::hasComponent(LABEL_COMPONENT_TYPE ct)
+{
+	LABEL_COMPONENT_TYPE temp;
+	for (auto c : ComponentContainer) {
+		temp = c->GetComponentType();
+		if (temp == ct)
+			return true;
+	}
+	return false;
+}
+
+// gets the list of compnents
 CONTAINER_LIST const & Container::GetContainerList() const
 {
 	return ComponentContainer;
 }
 
-void Container::AddComponent(LABLE_COMPONENT_TYPE ct)
+// adds components to list after checking them
+void Container::AddComponent(LABEL_COMPONENT_TYPE ct)
 {
-	if (GetComponent(ct) == nullptr) {
+	if (!hasComponent(ct)) {
 		// Creates components depending on what component type is passed
 		switch (ct)
 		{
 			// Animated sprites
-		case(LABLE_COMPONENT_TYPE::COMP_ANIMATED_SPRITE): {
-			std::cout << "Adding AnimatedSprite component to container" << std::endl;
+		case(LABEL_COMPONENT_TYPE::COMP_ANIMATED_SPRITE): {
+			std::cout << "Added AnimatedSprite component to container" << std::endl;
 			ANIMATED_SPRITE_PTR sprite = std::make_shared<AnimatedSprite>();
 			ComponentContainer.push_back(sprite);
 			break;
 		}
-														  /*
-
-														  add more components here!!!!
-
-														  */
+						
+		// add more components here!!!!
+		
 		default:
 			break;
 		}
 	}
 	else
-		std::cout << ct << " already exists in the container" << std::endl;
+		std::cout << "LABLE_COMPONENT_TYPE " << ct << " already exists in the container" << std::endl;
 }
 
-void Container::RemoveComponent(LABLE_COMPONENT_TYPE ct)
+void Container::RemoveComponent(LABEL_COMPONENT_TYPE ct)
 {
 }
