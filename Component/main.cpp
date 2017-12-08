@@ -8,15 +8,17 @@
 
 int main(){
 
-	ANIMATED_SPRITE_PTR sprite = std::make_shared<AnimatedSprite>();
-
-
+	std::cout << "Making entity now" << std::endl;
 	ENTITY_NODE_PTR entity = std::make_shared<EntityNode>();
 
-	entity->GetComponentContainer()->AddComponent(LABLE_COMPONENT_TYPE::COMP_ANIMATED_SPRITE);
-	entity->GetComponentContainer()->AddComponent(LABLE_COMPONENT_TYPE::COMP_ANIMATED_SPRITE);
+	std::cout << " adding component now " << std::endl;
+	entity->GetComponentContainer()->AddComponent(LABEL_COMPONENT_TYPE::COMP_ANIMATED_SPRITE);
+	std::cout << " adding the same component now " << std::endl;
+	entity->GetComponentContainer()->AddComponent(LABEL_COMPONENT_TYPE::COMP_ANIMATED_SPRITE);
 
+	std::cout << "Getting component " << entity->GetComponentContainer()->GetComponent(COMP_ANIMATED_SPRITE)->GetComponentType() << std::endl;
 
+	std::cout << "Runnig entity updates now " << std::endl;
 	entity->Update();
 
 	int wait;
