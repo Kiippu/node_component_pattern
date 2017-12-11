@@ -4,7 +4,15 @@
 #include "NodeHeaders.h"
 #include<iostream>
 
+/*
 
+TODO:
+
+- ranked system in component update to make sure input and rendering happend before others etc.
+
+
+
+*/
 
 int main(){
 
