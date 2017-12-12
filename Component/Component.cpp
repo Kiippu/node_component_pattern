@@ -3,8 +3,8 @@
 
 ID_COMPONENT_TYPE Component::nextIdForComponent = 0;
 
-Component::Component(LABEL_COMPONENT_TYPE ct)
-	:comp_type(ct),comp_ID(nextIdForComponent++)
+Component::Component(LABEL_COMPONENT_TYPE ct, LABEL_PRIORITY_TYPE pt)
+	:comp_type(ct),comp_ID(nextIdForComponent++),prty_type(pt)
 {
 	std::cout << "Component created" << std::endl;
 

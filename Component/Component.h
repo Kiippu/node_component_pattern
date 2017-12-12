@@ -4,6 +4,7 @@
 
 #include <memory>
 #include "ComponentTypes.h"
+#include "PriorityType.h"
 
 /*******************************************************************
 
@@ -15,7 +16,7 @@
 class Component
 {
 protected:
-	explicit Component(LABEL_COMPONENT_TYPE ct);
+	explicit Component(LABEL_COMPONENT_TYPE ct, LABEL_PRIORITY_TYPE pt);
 	
 public:
 	virtual ~Component();
@@ -31,9 +32,12 @@ private:
 	// components name
 	LABEL_COMPONENT_TYPE		comp_type;
 	ID_COMPONENT_TYPE			comp_ID;
+	LABEL_PRIORITY_TYPE			prty_type;
 };
 
 using COMPONENT_PTR = std::shared_ptr<Component>;
+
+
 
 #endif
 

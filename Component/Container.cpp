@@ -3,7 +3,6 @@
 #include <iostream>
 #include <memory>
 #include "AnimatedSprite.h"
-#include <list>
 #include <algorithm>
 
 /*
@@ -64,6 +63,7 @@ void Container::AddComponent(LABEL_COMPONENT_TYPE ct)
 			std::cout << "Added AnimatedSprite component to container" << std::endl;
 			ANIMATED_SPRITE_PTR sprite = std::make_shared<AnimatedSprite>();
 			ComponentContainer.push_back(sprite);
+			SortContainer();
 			break;
 		}
 						
@@ -79,4 +79,18 @@ void Container::AddComponent(LABEL_COMPONENT_TYPE ct)
 
 void Container::RemoveComponent(LABEL_COMPONENT_TYPE ct)
 {
+}
+
+
+// should override sort operatot algorithm TEST ME
+void Container::SortContainer()
+{
+	std::sort(ComponentContainer.begin(), ComponentContainer.end());
+}
+
+
+
+bool operator<(const COMPONENT_PTR & c1, const COMPONENT_PTR & c2)
+{
+	return c1->GetComponentType() > c2->GetComponentType();
 }

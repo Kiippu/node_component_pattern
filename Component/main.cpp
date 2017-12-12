@@ -9,7 +9,9 @@
 TODO:
 
 - ranked system in component update to make sure input and rendering happend before others etc.
-
+	- test system
+		- sort  in container
+			- add more components whith differing priorities
 
 
 */

@@ -5,6 +5,10 @@
 #include <list>
 #include "Component.h"
 #include "ComponentTypes.h"
+#include "ContainerSort.h"
+
+#include <queue>
+#include <vector>
 
 /*******************************************************************
 
@@ -14,7 +18,7 @@
 *********************************************************************/
 
 // change this to a map
-using CONTAINER_LIST = std::list<COMPONENT_PTR>;
+using CONTAINER_LIST = std::vector<COMPONENT_PTR>;
 
 class Container
 {
@@ -36,12 +40,18 @@ public:
 	//remove a component
 	void RemoveComponent(LABEL_COMPONENT_TYPE ct);
 
+	//sort container
+	void SortContainer();
+
 private:
 	// list of components belonging to parent
 	CONTAINER_LIST		ComponentContainer;
 };
 
 using CONTAINER_PTR = std::shared_ptr<Container>;
+
+// overrides < operator
+bool operator<(const COMPONENT_PTR & c1, const COMPONENT_PTR & c2);
 
 #endif
 
