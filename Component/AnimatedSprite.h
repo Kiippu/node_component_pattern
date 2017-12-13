@@ -22,7 +22,7 @@ public:
 	AnimatedSprite();
 	~AnimatedSprite();
 
-	void update();
+	void Update();
 };
 
 using ANIMATED_SPRITE_PTR = std::shared_ptr<AnimatedSprite>;

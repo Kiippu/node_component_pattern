@@ -26,7 +26,7 @@ public:
 	//holds next the incrememnted id tag
 	static ID_COMPONENT_TYPE	nextIdForComponent;
 
-	virtual void update() = 0;
+	virtual void Update() = 0;
 
 private:
 	// components name

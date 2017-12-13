@@ -33,6 +33,6 @@ CONTAINER_PTR const Node::GetComponentContainer() const
 void Node::Update()
 {
 	for (auto comp : comp_container->GetContainerList()) {
-		comp->update();
+		comp->Update();
 	}
 }

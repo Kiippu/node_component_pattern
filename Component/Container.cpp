@@ -2,8 +2,10 @@
 
 #include <iostream>
 #include <memory>
-#include "AnimatedSprite.h"
 #include <algorithm>
+
+#include "ComponentHeaders.h"
+
 
 /*
 TODO:
@@ -60,13 +62,26 @@ void Container::AddComponent(LABEL_COMPONENT_TYPE ct)
 		{
 			// Animated sprites
 		case(LABEL_COMPONENT_TYPE::COMP_ANIMATED_SPRITE): {
-			std::cout << "Added AnimatedSprite component to container" << std::endl;
+			std::cout << "Added AnimatedSprite" << std::endl;
 			ANIMATED_SPRITE_PTR sprite = std::make_shared<AnimatedSprite>();
 			ComponentContainer.push_back(sprite);
 			SortContainer();
 			break;
 		}
-						
+		case(LABEL_COMPONENT_TYPE::COMP_RENDER): {
+			std::cout << "Added Render" << std::endl;
+			RENDER_PTR RenderScene = std::make_shared<Render>();
+			ComponentContainer.push_back(RenderScene);
+			SortContainer();
+			break;
+		}
+		case(LABEL_COMPONENT_TYPE::COMP_READ_WRITE): {
+			std::cout << "Added ReadWrite" << std::endl;
+			READ_WRITE_PTR readWrite = std::make_shared<ReadWrite>();
+			ComponentContainer.push_back(readWrite);
+			SortContainer();
+			break;
+		}
 		// add more components here!!!!
 		
 		default:
@@ -92,5 +107,5 @@ void Container::SortContainer()
 
 bool operator<(const COMPONENT_PTR & c1, const COMPONENT_PTR & c2)
 {
-	return c1->GetComponentType() > c2->GetComponentType();
+	return c1->GetComponentType() < c2->GetComponentType();
 }

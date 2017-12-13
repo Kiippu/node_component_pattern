@@ -28,12 +28,12 @@
     <Filter Include="Source\Node\Derivatives">
       <UniqueIdentifier>{867724ce-dfb2-484e-945d-adb436452c13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Headers">
+      <UniqueIdentifier>{6f44afc8-e95b-4b31-8a4b-ce91e16881a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
-      <Filter>Source\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="ComponentHeaders.h">
       <Filter>Source\Component</Filter>
     </ClInclude>
     <ClInclude Include="AnimatedSprite.h">
@@ -54,8 +54,20 @@
     <ClInclude Include="Container.h">
       <Filter>Source\Component</Filter>
     </ClInclude>
+    <ClInclude Include="ReadWrite.h">
+      <Filter>Source\Component\Derivatives</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.h">
+      <Filter>Source\Component\Derivatives</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentHeaders.h">
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
     <ClInclude Include="NodeHeaders.h">
-      <Filter>Source</Filter>
+      <Filter>Source\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityType.h">
+      <Filter>Source\Types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +88,12 @@
     </ClCompile>
     <ClCompile Include="EntityNode.cpp">
       <Filter>Source\Node\Derivatives</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadWrite.cpp">
+      <Filter>Source\Component\Derivatives</Filter>
+    </ClCompile>
+    <ClCompile Include="Render.cpp">
+      <Filter>Source\Component\Derivatives</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

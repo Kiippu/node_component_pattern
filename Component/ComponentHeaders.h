@@ -9,6 +9,8 @@
 
 //components
 #include "AnimatedSprite.h"
+#include "ReadWrite.h"
+#include "Render.h"
 
 
 
