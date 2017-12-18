@@ -9,8 +9,8 @@ to the entities and then again used for collisions
 */
 typedef enum : unsigned int
 {
-	NODE_ENTITY = 0,
-	NODE_
+	NODE_ADVANCED = 0,
+	NODE_ENTITY
 
 } LABEL_NODE_TYPE;
 

@@ -23,7 +23,8 @@ typedef enum : unsigned int
 	COMP_ENTITY,					//NOT DONE
 	COMP_CONTROL,					//NOT DONE
 	COMP_READ_WRITE,				//CREATED - NOT FINISHED
-	COMP_RENDER						//CREATED - NOT FINISHED
+	COMP_RENDER,					//CREATED - NOT FINISHED
+	COMP_NODE_CONTAINER				//NEW IDEA - Component that has a container that holds nodes (item bags, inventory)
 
 } LABEL_COMPONENT_TYPE;
 
