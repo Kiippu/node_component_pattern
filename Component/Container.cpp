@@ -107,5 +107,5 @@ void Container::SortContainer()
 
 bool operator<(const COMPONENT_PTR & c1, const COMPONENT_PTR & c2)
 {
-	return c1->GetComponentType() < c2->GetComponentType();
+	return c1->GetPriorityType() < c2->GetPriorityType();
 }

@@ -17,3 +17,8 @@ LABEL_COMPONENT_TYPE const Component::GetComponentType() const
 {
 	return comp_type;
 }
+
+LABEL_PRIORITY_TYPE const Component::GetPriorityType() const
+{
+	return prty_type;
+}

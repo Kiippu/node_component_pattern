@@ -22,6 +22,7 @@ public:
 	virtual ~Component();
 	// gets type name
 	LABEL_COMPONENT_TYPE const GetComponentType() const;
+	LABEL_PRIORITY_TYPE const GetPriorityType() const;
 
 	//holds next the incrememnted id tag
 	static ID_COMPONENT_TYPE	nextIdForComponent;
