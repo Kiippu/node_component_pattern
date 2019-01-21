@@ -56,33 +56,24 @@ CONTAINER_LIST const & Container::GetContainerList() const
 // adds components to list after checking them
 void Container::AddComponent(LABEL_COMPONENT_TYPE ct)
 {
+	COMPONENT_PTR newComponent;
 	if (!hasComponent(ct)) {
 		// Creates components depending on what component type is passed
 		switch (ct)
 		{
 			// Animated sprites
 		case(LABEL_COMPONENT_TYPE::COMP_ANIMATED_SPRITE): {
-			std::cout << "Added AnimatedSprite" << std::endl;
-			ANIMATED_SPRITE_PTR sprite = std::make_shared<AnimatedSprite>();
-			ComponentContainer.push_back(sprite);
-			SortContainer();
+			newComponent = std::make_shared<AnimatedSprite>();
 			break;
 		}
 		case(LABEL_COMPONENT_TYPE::COMP_RENDER): {
-			std::cout << "Added Render" << std::endl;
-			RENDER_PTR RenderScene = std::make_shared<Render>();
-			ComponentContainer.push_back(RenderScene);
-			SortContainer();
+			newComponent = std::make_shared<Render>();
 			break;
 		}
 		case(LABEL_COMPONENT_TYPE::COMP_READ_WRITE): {
-			std::cout << "Added ReadWrite" << std::endl;
-			READ_WRITE_PTR readWrite = std::make_shared<ReadWrite>();
-			ComponentContainer.push_back(readWrite);
-			SortContainer();
+			newComponent = std::make_shared<ReadWrite>();
 			break;
 		}
-		// add more components here!!!!
 		
 		default:
 			break;
@@ -90,6 +81,10 @@ void Container::AddComponent(LABEL_COMPONENT_TYPE ct)
 	}
 	else
 		std::cout << "LABLE_COMPONENT_TYPE " << ct << " already exists in the container" << std::endl;
+
+
+	ComponentContainer.push_back(newComponent);
+	SortContainer();
 }
 
 void Container::RemoveComponent(LABEL_COMPONENT_TYPE ct)
@@ -97,7 +92,7 @@ void Container::RemoveComponent(LABEL_COMPONENT_TYPE ct)
 }
 
 
-// should override sort operatot algorithm TEST ME
+// should override sort operator algorithm TEST ME
 void Container::SortContainer()
 {
 	std::sort(ComponentContainer.begin(), ComponentContainer.end());
